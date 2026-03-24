@@ -3,10 +3,10 @@
 	<name>plg_system_t6</name>
 	<version>3.0.0</version>
 	<creationDate>March 22, 2026</creationDate>
-	<author>JoomlArt</author>
-	<authorEmail>admin@joomlart.com</authorEmail>
-	<authorUrl>www.joomlart.com</authorUrl>
-	<copyright>Copyright (C) 2005 - 2025 JoomlArt.com</copyright>
+	<author>SIT (Ab Söderholms IT-tjänster Oy) - based on work by JoomlArt</author>
+	<authorEmail>info@ittjanster.fi</authorEmail>
+	<authorUrl>www.ittjanster.fi</authorUrl>
+	<copyright>Copyright (C) 2005 - 2025 JoomlArt.com | Ab Söderholms IT-tjänster Oy</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<description><![CDATA[
 			<div class="tpl-info">
@@ -69,7 +69,7 @@
 		</sql>
 	</uninstall>
 	<updateservers>
-		<server type="extension" priority="1" name="T6 System Plugin">http://update.joomlart.com/service/tracking/j31/plg_system_t6.xml</server>
+		
 	</updateservers>
 	<scriptfile>t6.scripts.php</scriptfile>
 </extension>
