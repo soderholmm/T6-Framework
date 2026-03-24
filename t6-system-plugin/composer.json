@@ -1,0 +1,25 @@
+{
+    "name": "joomlart/t6-home-system",
+    "description": "T6 Home System Plugin for Joomla 6",
+    "type": "joomla-plugin",
+    "version": "3.0.0",
+    "require": {
+        "php": "^8.2",
+        "joomla/framework": "^6.0",
+        "chrisjean/php-ico": "^1.0",
+        "matthiasmullie/minify": "^1.3",
+        "scssphp/scssphp": "^1.6",
+        "sabberworm/php-css-parser": "*",
+        "nelexa/zip": "^3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "T6\\": "src/t6/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

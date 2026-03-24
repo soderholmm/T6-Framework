@@ -1,0 +1,289 @@
+<?php
+namespace T6Admin;
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
+use Joomla\Registry\Registry;
+use T6\Helper\Path;
+use T6\Helper\Css;
+class Admin
+{
+    public static $template = null;
+
+    public static function init($form, $data)
+    {
+        if (!self::isT6Template()) {
+            return;
+        }
+
+        // Define T6 const
+        $template = self::getTemplate();
+
+        // upgrade compare new version
+        T6Compatible::run($data);
+        // Load T6 template params
+        Params::load($form, $data);
+
+        // set back template params
+        if (!empty($data->params)) {
+            self::$template->params = json_encode($data->params);
+        }
+
+        // clean draft data
+        Draft::clear();
+
+        $doc = Factory::getDocument();
+        //create jsLangs
+        $langs = array(
+            't6save'				=> Text::_("JAPPLY"),
+            'customCssSaved'				=> Text::_("T6_CUSTOM_CSS_HAS_SAVED"),
+            'patternDelConfirm' => Text::_('TPL_T6_PATTERN_CONFIRM'),
+            'OverRideConfirm' => Text::_('T6_OVERRIDE_CONFIRM'),
+            'RemoveColConfirm' => Text::_('TPL_T6_COL_REMOVE_CONFIRM'),
+            'logoPresent' => Text::_('T6_LAYOUT_LOGO_TEXT'),
+            'emptyLayoutPosition' => Text::_('T6_LAYOUT_EMPTY_POSITION'),
+            'defaultLayoutPosition' => Text::_('T6_LAYOUT_DEFAULT_POSITION'),
+
+            'layoutConfig' => Text::_('T6_LAYOUT_CONFIG_TITLE'),
+            'layoutConfigDesc' => Text::_('T6_LAYOUT_CONFIG_DESC'),
+            'layoutUnknownWidth' => Text::_('T6_LAYOUT_UNKN_WIDTH'),
+            'layoutPosWidth' => Text::_('T6_LAYOUT_POS_WIDTH'),
+            'layoutPosName' => Text::_('T6_LAYOUT_POS_NAME'),
+
+            'layoutCanNotLoad' => Text::_('T6_LAYOUT_LOAD_ERROR'),
+
+            'askCloneLayout' => Text::_('T6_LAYOUT_ASK_ADD_LAYOUT'),
+            'correctLayoutName' => Text::_('T6_LAYOUT_ASK_CORRECT_NAME'),
+            'askDeleteLayout' => Text::_('T6_LAYOUT_ASK_DEL_LAYOUT'),
+            'askDeleteLayoutDesc' => Text::_('T6_LAYOUT_ASK_DEL_LAYOUT_DESC'),
+            'askPurgeLayout' => Text::_('T6_LAYOUT_ASK_DEL_LAYOUT'),
+            'askPurgeLayoutDesc' => Text::_('T6_LAYOUT_ASK_PURGE_LAYOUT_DESC'),
+
+            'lblDeleteIt' => Text::_('T6_LAYOUT_LABEL_DELETEIT'),
+            'lblCloneIt' => Text::_('T6_LAYOUT_LABEL_CLONEIT'),
+
+            'layoutEditPosition' => Text::_('T6_LAYOUT_EDIT_POSITION'),
+            'layoutShowPosition' => Text::_('T6_LAYOUT_SHOW_POSITION'),
+            'layoutHidePosition' => Text::_('T6_LAYOUT_HIDE_POSITION'),
+            'layoutChangeNumpos' => Text::_('T6_LAYOUT_CHANGE_NUMPOS'),
+            'layoutDragResize' => Text::_('T6_LAYOUT_DRAG_RESIZE'),
+            'layoutHiddenposDesc' => Text::_('T6_LAYOUT_HIDDEN_POS_DESC'),
+
+            'updateFailedGetList' => Text::_('T6_OVERVIEW_FAILED_GETLIST'),
+            'updateDownLatest' => Text::_('T6_OVERVIEW_GO_DOWNLOAD'),
+            'updateCheckUpdate' => Text::_('T6_OVERVIEW_CHECK_UPDATE'),
+            'updateChkComplete' => Text::_('T6_OVERVIEW_CHK_UPDATE_OK'),
+            'updateHasNew' => Text::_('T6_OVERVIEW_TPL_NEW'),
+            'updateCompare' => Text::_('T6_OVERVIEW_TPL_COMPARE'),
+            'switchResponsiveMode' => Text::_('T6_MSG_SWITCH_RESPONSIVE_MODE'),
+
+            'toolImportDataDone' => Text::_('T6_TOOL_IMPORT_DONE'),
+            'toolExportNoSelectedGroupsWarning' => Text::_('T6_TOOL_EXPORT_NO_SELECTED_GROUPS_WARNING'),
+            'toolImportDataFileError' => Text::_('T6_TOOL_IMPORT_DATA_FILE_ERROR'),
+            'toolImportDataFileEmptyWarning' => Text::_('T6_TOOL_IMPORT_DATA_FILE_EMPTY_WARNING'),
+
+            'addonEmptyFieldWaring' => Text::_('T6_ADDONS_EMPTY_FIELD_WARNING'),
+            'addonEmptyFieldCssOrJSWaring' => Text::_('T6_ADDONS_EMPTY_CSS_OR_JS_FIELD_WARNING'),
+            'addonRemoveConfirm' => Text::_('T6_ADDONS_REMOVE_CONFIRM'),
+            'addonRemoveDeleted' => Text::_('T6_ADDONS_DELETED'),
+            'addonNameDuplicated' => Text::_('T6_ADDONS_SAVE_DUPLICATED_ERROR'),
+            'fontsEmptyFieldCssWaring' => Text::_('T6_CUSTOM_FONT_CSS_MISSED'),
+            'fontEmptyFieldFontFileWaring' => Text::_('T6_CUSTOM_FONT_FILE_MISSED'),
+            'customColorRemoveConfirm' => Text::_('T6_CUSTOM_COLOR_CONFIRM'),
+            'customColordaplicateWaring' => Text::_('T6_CUSTOM_COLOR_DUPLICATED_ERROR'),
+            'colorNameNoneWarning' => Text::_('T6_CUSTOM_COLOR_NAME_NONE_ERROR'),
+            'colorEmptyFieldWaring' => Text::_('T6_CUSTOM_COLOR_COLOR_FIELD_ERROR'),
+            'colorNameEmptyFieldWaring' => Text::_('T6_CUSTOM_COLOR_NAME_FIELD_ERROR'),
+            'customColorHasSaved' => Text::_('T6_CUSTOM_COLOR_HAS_SAVED'),
+            'customColorRemoveConfirm' => Text::_('T6_CUSTOM_COLOR_CONFIRM_REMOVE'),
+            'customColorDeleted' => Text::_('T6_CUSTOM_COLOR_HAS_DELETED'),
+            'userColorConfirmEditLabel' => Text::_('T6_CUSTOM_COLOR_CONFIRM_EDIT'),
+            'palettesUpdated' => Text::_('T6_COLOR_PALETTES_UPDATED'),
+            'typelistConfirmEditlayout' => Text::_('T6_TYPELIST_CONFIRM_EDIT_LAYOUT'),
+            'typelistConfirmEdittheme' => Text::_('T6_TYPELIST_CONFIRM_EDIT_THEME'),
+            'typelistConfirmEditnavigation' => Text::_('T6_TYPELIST_CONFIRM_EDIT_NAVIGATION'),
+            'typelistConfirmEditsite' => Text::_('T6_TYPELIST_CONFIRM_EDIT_SITE'),
+            'typelistconfirmlayoutDelete' => Text::_('T6_TYPELIST_CONFIRM_DELETE_LAYOUT'),
+            'typelistconfirmlayoutRestore' => Text::_('T6_TYPELIST_CONFIRM_RESTORE_LAYOUT'),
+            'typelistconfirmthemeDelete' => Text::_('T6_TYPELIST_CONFIRM_DELETE_THEME'),
+            'typelistconfirmthemeRestore' => Text::_('T6_TYPELIST_CONFIRM_RESTORE_THEME'),
+            'typelistconfirmnavigationDelete' => Text::_('T6_TYPELIST_CONFIRM_DELETE_NAVIGATION'),
+            'typelistconfirmnavigationRestore' => Text::_('T6_TYPELIST_CONFIRM_RESTORE_NAVIGATION'),
+            'typelistconfirmsiteDelete' => Text::_('T6_TYPELIST_CONFIRM_DELETE_SITE'),
+            'typelistconfirmsiteRestore' => Text::_('T6_TYPELIST_CONFIRM_RESTORE_SITE'),
+            'typelistconfirmlayoutDeleted' => Text::_('T6_TYPELIST_CONFIRM_DELETED_LAYOUT'),
+            'typelistconfirmlayoutRestored' => Text::_('T6_TYPELIST_CONFIRM_RESTORED_LAYOUT'),
+            'typelistconfirmthemeDeleted' => Text::_('T6_TYPELIST_CONFIRM_DELETED_THEME'),
+            'typelistconfirmthemeRestored' => Text::_('T6_TYPELIST_CONFIRM_RESTORED_THEME'),
+            'typelistconfirmnavigationDeleted' => Text::_('T6_TYPELIST_CONFIRM_DELETED_NAVIGATION'),
+            'typelistconfirmnavigationRestored' => Text::_('T6_TYPELIST_CONFIRM_RESTORED_NAVIGATION'),
+            'typelistconfirmsiteDeleted' => Text::_('T6_TYPELIST_CONFIRM_DELETED_SITE'),
+            'typelistconfirmsiteRestored' => Text::_('T6_TYPELIST_CONFIRM_RESTORED_SITE'),
+            'megamenuExtraClass' => Text::_('T6_NAVIGATION_MEGA_EXTRA_CLASS'),
+            'megamenuSubmenuWidth' => Text::_('T6_NAVIGATION_SUB_MENU_WIDTH'),
+            'megamenuAlignment' => Text::_('T6_NAVIGATION_ALIGNMENT'),
+            'megamenuSectionSelectItems' => Text::_('T6_NAVIGATION_MEGA_BUILD_SELECT_ITEMS'),
+            'megamenuSectionAllItems' => Text::_('T6_NAVIGATION_MEGA_BUILD_ALL_ITEMS'),
+            'colorPalettesConfirmRestore' => Text::_('T6_LAYOUT_PALETTES_CONFIRM_RESTORE'),
+            'colorPalettesRestore' => Text::_('T6_LAYOUT_PALETTES_RESTORE'),
+            'colorPalettesConfirmDelete' => Text::_('T6_LAYOUT_PALETTES_CONFIRM_DEL'),
+            'colorPalettesDelete' => Text::_('T6_LAYOUT_PALETTES_DEL'),
+            'butonCloseConfirm' => Text::_('T6_BTN_CLOSE_CONFIRM'),
+            't6LayoutRowConfirmDel' => Text::_('T6_LAYOUT_CONFIRM_ROW_DEL'),
+            'typelistItemDeleted' => Text::_('T6_TYPE_LIST_DELETED'),
+            'typelistCloneSaved' => Text::_('T6_TYPE_LIST_CLONE_SAVE'),
+            'palettesRemnoveClone' => Text::_('T6_PALETTES_REMOVE_CLONE'),
+            't6LayoutRowDeleted' => Text::_('T6_LAYOUT_ROW_DELETED'),
+            'T6BlockNameNone' => Text::_('T6_LAYOUT_BLOCK_NAME_NONE'),
+            'T6LayoutSaveBlock' => Text::_('T6_LAYOUT_BLOCK_HAS_SAVED'),
+            'T6AddonsHasUpdated' => Text::_('T6_ADDONS_HAS_UPDATED'),
+            'T6AddonsHasAdded' => Text::_('T6_ADDONS_HAS_ADDED'),
+            'T6fontCustomAdded' => Text::_('T6_CUSTOM_FONT_HAS_ADDED'),
+            'T6fontCustomRemoveConfirm' => Text::_('T6_CUSTOM_FONT_CONFIRM_REMOVE'),
+            'T6fontCustomRemoved' => Text::_('T6_CUSTOM_FONT_HAS_REMOVED'),
+            'T6TypeListSaved' => Text::_('T6_TYPE_LIST_SAVED'),
+            'T6loadGoogleFontConfirm' => Text::_('T6_DONT_LOAD_GOOGLE_FONT_CONFIRM'),
+            'ExportDataSuccessfuly' => Text::_('T6_TOOL_EXPORT_SUCCESS'),
+        );
+
+        // Add loading class when rendering admin layout
+        $script = "document.documentElement.classList.add('t6admin-loading');\n";
+        $script .= "window.addEventListener('load', function() {setTimeout(function(){document.documentElement.classList.remove('t6admin-loading')}, 1000)})";
+        $script .= "; var T6Admin = window.T6Admin || {}; ";
+        $script .= " T6Admin.langs = ". json_encode($langs) . "; ";
+        $script .= " T6Admin.t6devmode = '" .( Factory::getConfig()->get('devmode') ? 1 : 0 ). "'; ";
+        $script .= " T6Admin.jversion = '" . \T6\Helper\J3J4::major() . "'; ";
+        $doc->addScriptDeclaration($script);
+
+        // Init js
+        $assets_uri = T6PATH_ADMIN_URI . '/assets';
+        
+        // Only load admin CSS/JS for template editing, not for Global Configuration
+        $app = Factory::getApplication();
+        $option = $app->input->get('option');
+        $view = $app->input->get('view');
+        
+        // Only load T6 admin assets when editing templates, not in Global Configuration
+        if ($option === 'com_templates' && $view === 'style') {
+            $doc->addStyleSheet($assets_uri . '/css/dark_theme.css');
+            $doc->addStyleSheet($assets_uri . '/css/t6-code.css');
+            $doc->addStyleSheet($assets_uri . '/css/t6-ie.css', array('version' => 'auto', 'relative' => true));//, 'conditional' => 'IE'
+            //$doc->addStyleSheet($assets_uri . '/css/animate.css');
+
+             // enable jquery.ui
+            $wam = \T6\Helper\Asset::getWebAssetManager();
+            // $wam->useStyle('chosen');
+            // $wam->useScript('chosen');
+            $wam->useStyle('minicolors');
+            $wam->useScript('minicolors');
+            $wam->useScript('jquery-migrate');
+            $doc->addScript($assets_uri . '/js/jquery-ui.min.js');
+            $doc->addScript($assets_uri . '/js/overwrite-settings.js');
+        }
+        // Preview - Only load for template editing
+        if ($option === 'com_templates' && $view === 'style') {
+            $doc->addScript($assets_uri . '/js/preview.js', ['version' => 'auto']);
+            $cssRoot = Css::renderRoot($data) . Path::getFileContent('css/tpl/theme.tpl.css');
+            $previewjs = "var cssTplStyle = " . json_encode($cssRoot) . ";";
+            $previewjs .= "var cssTplPalette = " . json_encode(Path::getFileContent('css/tpl/pattern.tpl.css')) . ";";
+            $doc->addScriptDeclaration($previewjs);
+
+            $editorLoader = 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js';
+            $doc->addScript($editorLoader, [], ['defer' => true]);
+            $doc->addScript($assets_uri . '/js/T6CodeEditor.js');
+
+            HTMLHelper::_('script', 'plugins/system/t6/admin/assets/chosen/chosen.jquery.min.js', ['version' => 'auto']);
+            HTMLHelper::_('stylesheet', 'plugins/system/t6/admin/assets/chosen/chosen.min.css', ['version' => 'auto']);
+        }
+    }
+
+    public static function isT6Template($template = null)
+    {
+        if (!$template) {
+            $template = self::getTemplate();
+        }
+        if ($template) {
+            // parse xml
+            $filePath = JPATH_ROOT . '/templates/' . $template . '/templateDetails.xml';
+
+            if (!is_file($filePath)) {
+                return false;
+            }
+            $xml = simplexml_load_file($filePath);
+            // check t6
+            $base = isset($xml->t6) && isset($xml->t6->basetheme) ? trim(strtolower($xml->t6->basetheme)) : null;
+
+            // not an T6 template, ignore
+            if (!$base) {
+                return false;
+            }
+
+            // validate base
+            $path = T6PATH_THEMES . '/' . $base;
+
+            if (!is_dir($path)) {
+                return false;
+            }
+
+            // define const
+            if (!defined('T6PATH_BASE')) {
+                define('T6PATH_BASE', $path);
+                define('T6PATH_BASE_URI', T6PATH_THEMES_URI . '/' . $base);
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function getTemplate($params = false)
+    {
+        if (self::$template === '') {
+            return null;
+        }
+
+        if (self::$template === null) {
+            $id = Factory::getApplication()->input->getInt('id');
+            $db = Factory::getDbo();
+
+            $query = $db->getQuery(true);
+            $query->select(array('*'));
+            $query->from($db->quoteName('#__template_styles'));
+            $query->where($db->quoteName('client_id') . ' = 0');
+            $query->where($db->quoteName('id') . ' = ' . $db->quote($id));
+
+            $db->setQuery($query);
+
+            $tpl = $db->loadObject();
+            if (!$tpl || !self::isT6Template($tpl->template)) {
+                self::$template = '';
+                return null;
+            }
+
+            self::$template = $tpl;
+
+            // define template const
+            $tpl_path = '/templates/' . $tpl->template;
+            define('T6PATH_TPL', JPATH_ROOT . $tpl_path);
+            define('T6PATH_TPL_URI', Uri::root(true) . $tpl_path);
+            // define local const
+            define('T6PATH_LOCAL', T6PATH_TPL . '/local');
+            define('T6PATH_LOCAL_URI', T6PATH_TPL_URI . '/local');
+        }
+        return $params ? self::$template : self::$template->template;
+    }
+    protected static function initT6AdminJs($path)
+    {
+        $doc = Factory::getDocument();
+    }
+    public static function initOffline($data)
+    {
+       $site_params = json_decode(Path::getFileContent('etc/site/'.$data->params->get('typelist-site'). '.json'),true);
+       if(!empty($site_params)){
+        $data->site_params = New Registry($site_params);
+       }
+    }
+}

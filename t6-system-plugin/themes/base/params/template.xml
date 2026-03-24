@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fields name="params" addfieldpath="/plugins/system/t6/admin/field">
+    <fieldset name="themeConfig">
+      <field name="tplhelper" type="tplhelper" />
+      <field name="stylePreview" type="CustomStylePreview" class="custom-style-preview" default="" label="TPL_T6_PREVIEW" description="" />
+      <!-- Template Info -->
+      <field type="legend" icon="info-circle" class="t6-detail" label="T6_GROUP_OVERVIEW_LABEL" description="" panel-heading="T6_GROUP_OVERVIEW_LABEL" expend="1" />
+      <field name="tempDetail" type="tempdetail" class="detail_info" label="TPL_T6_TEMPLATE_OVERVIEW_LABEL" description="" />
+      <!-- Site Settings -->
+      <field type="legend" icon="cog" class="t6-site-settings" label="TPL_T6_SITE_SETTINGS_LABEL" description="" panel-heading="TPL_T6_SITE_SETTINGS_DESC" expend="1" />
+      <field name="typelist-site" type="typelist" class="" default="" label="T6_SITE" />
+      <!-- NAVIGATION -->
+      <field name="group-navigation" type="legend" icon="bars" class="t6-navigation" label="T6_GROUP_NAVIGATION_LABEL" description="" panel-heading="T6_GROUP_NAVIGATION_DESC" expend="1" />
+      <field name="typelist-navigation" type="typelist" class="" default="" label="T6_NAVIGATION" />
+      <!-- Theme Group -->
+      <field name="groupt-theme" type="legend" class="t6-group-theme" default="" icon="palette" label="T6_GROUP_THEME_COLOR" panel-heading="T6_GROUP_THEME_COLOR_DESC" expend="1" />
+      <field name="typelist-theme" type="typelist" class="" default="" label="T6_THEME_SELECT_THEME" />
+      <!-- Layout Pane -->
+      <field name="groupt-layout" type="legend" class="t6-layout-builder" default="" icon="columns" label="T6_GROUP_LAYOUTS_SETTINGS" panel-heading="T6_GROUP_LAYOUTS_SETTINGS" expend="1" />
+      <field name="group-mainlayout" class="has-icon" type="legend" subgroup="1" icon="columns" label="T6_LAYOUT_GROUP_LABEL" />
+      <field name="typelist-layout" type="typelist" class="" default="" label="T6_LAYOUTS_SELECT_LAYOUT" />
+      <field name="group-sublayout" class="has-icon" type="legend" subgroup="1" icon="columns" label="T6_SUBLAYOUT_GROUP_LABEL" />
+      <field name="sub-layout" type="t6layouts" class="t6-sub-layout" label="Sub Layout" />
+      <!-- Global settings -->
+      <field name="group-system" type="legend" icon="cogs" label="T6_ADVANCED_GROUP_LABEL" class="advance t6-advanced" description="" panel-heading="T6_GROUP_SYSTEM_DESC" />
+      <!-- frontend edit group -->
+      <field name="frontendedit" class="t6frontendedit_group has-icon" type="legend" subgroup="1" icon="edit" label="T6_FRONTEND_EDIT_GROUP_LABEL" description="" />
+      <field name="system_t6frontendedit" type="list" default="1" label="T6_FRONTEND_EDIT_LABEL" description="" subgroup="1" group="t6frontendedit" >
+        <option value="0">T6_CONFIG_FRONT_EDIT_FULL_LAYOUT</option>
+        <option value="1">T6_CONFIG_FRONT_EDIT_CLEAN_LAYOUT</option>
+      </field>
+      <!-- Optimize group -->
+      <field name="optimization" class="optimization_group has-icon" type="legend" subgroup="1" icon="compress-arrows-alt" label="T6_OPTIMIZATION_GROUP_LABEL" description="" />
+      <field name="system_optimizecss" type="t6radio" default="0" label="T6_OPTIMIZATION_CSS_LABEL" description="" value="1" subgroup="1" group="optimizecss" />
+      <field name="system_optimizecss_exclude" type="textarea" default="" label="T6_OPTIMIZATION_CSS_EXCLUDE_LABEL" description="" class="checkbox-group optimizecss" />
+      <field name="system_optimizejs" class="" type="t6radio" default="0" label="T6_OPTIMIZATION_JS_LABEL" description="" subgroup="1" group="optimizejs" />
+      <field name="system_optimizejs_exclude" type="textarea" default="" label="T6_OPTIMIZATION_JS_EXCLUDE_LABEL" description="" class="checkbox-group optimizejs" />
+      <!-- custom code group -->
+      <field name="custom_code" class="customcode_group has-icon" type="legend" subgroup="1" icon="code" label="T6_CUSTOM_CODE_GROUP" description="" />
+      <field name="system_advancedCodeAfterHead" class="checkbox-group code" type="textarea" default="" label="T6_AFTER_HEAD_LABEL" description="" rows="10" cols="80" filter="raw" />
+      <field name="system_advancedCodeBeforeHead" class="checkbox-group code" type="textarea" default="" label="T6_BEFORE_HEAD_LABEL" description="" rows="10" cols="80" filter="raw" />
+      <field name="system_advancedCodeAfterBody" class="checkbox-group code" type="textarea" default="" label="T6_AFTER_BODY_LABEL" description="" rows="10" cols="80" filter="raw" />
+      <field name="system_advancedCodeBeforeBody" class="checkbox-group code" type="textarea" default="" label="T6_BEFORE_BODY_LABEL" description="" rows="10" cols="80" filter="raw" />
+      <!-- Addons group -->
+      <field name="addons_group" class="addons_group has-icon" type="legend" subgroup="1" icon="plug" label="T6_ADVANCED_ADDONS_GROUP_LABEL" description="" />
+      <field name="system_addons" class="" type="addons" />
+      <!-- open graph group -->
+      <field name="og_group" class="og_group has-icon" type="legend" subgroup="1" icon="share-alt" label="T6_ADVANCED_OPEN_GRAPH_GROUP_LABEL" description="" />
+      <field name="system_opengraph" class="" type="t6radio" value="1" subgroup="1" label="T6_OPEN_GRAPH_LABEL" group="og_group" description="" />
+      <!-- menu asignment group -->
+      <field type="legend" icon="ballot-check" label="COM_TEMPLATES_MENUS_ASSIGNMENT" panel-heading="COM_TEMPLATES_MENUS_ASSIGNMENT" class="t6-assignment" description="" />
+      <!-- Tools Pane -->
+      <field name="tools_advanced" class="tools_group has-icon t6-tools" type="legend" icon="tools" label="T6_TOOLS_GROUP_LABEL" description="" panel-heading="T6_TOOLS_GROUP_LABEL" />
+      <field name="advanced_tools" class="" type="toolbackup" />
+    </fieldset>
+  </fields>
+</form>
