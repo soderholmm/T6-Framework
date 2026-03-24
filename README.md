@@ -1,118 +1,84 @@
-# T6 System Plugin - Joomla 6 Native Version
+# T6 Framework for Joomla 6
+
+A modern Joomla template framework providing advanced layout management, theme customization, and megamenu functionality for Joomla 6.
 
 ## Overview
-This is a Joomla 6 native version of the T6 System plugin and template. The plugin has been modernized to work with Joomla 6 while maintaining compatibility with the T6 template framework.
 
-This is a completely changed T4 framwork to native Joomla! 6 conversion.
+The T6 Framework consists of two main components:
 
-## Key Changes Made
+- **T6 System Plugin** (`t6-system-plugin/`) - Core framework plugin that provides the template engine, admin interface, and framework functionality
+- **T6 Bootstrap 5 Template** (`tpl_t6_bs5_blank/`) - A blank Bootstrap 5 starter template built on the T6 Framework
 
-### 1. Core Plugin Modernization
-- Updated to PHP 8.4 compatibility
-- Added proper type declarations and return types
-- Modernized error handling with try-catch blocks
-- Added strict type declarations
+## Key Features
 
-### 2. Joomla 6 Compatibility Fixes
-- Removed all Joomla 3/4/5 backward compatibility code
-- Updated to use Joomla 6 native APIs
-- Fixed deprecated function calls
-- Updated to use WebAssetManager for asset management
+- **Layout Management** - Visual block-based layout system with drag-and-drop functionality
+- **Theme Customization** - Color palettes, presets, and custom CSS/JS support
+- **Megamenu System** - Advanced navigation with multi-column dropdown menus
+- **Font Management** - Google Fonts integration with weight and subset controls
+- **Responsive Design** - Mobile-first Bootstrap 5 based templates
+- **Addon System** - Extensible addon architecture for additional functionality
+- **Import/Export** - Backup and restore template configurations
 
-### 3. Admin Interface Updates
-- Fixed method_exists null concatenation error in tplhelper.php
-- Fixed undefined variable errors in featured/default.php
-- Fixed open_basedir error in Path::saveLocalContent()
-- Fixed Global Settings save functionality
-- Fixed block list not showing for non-default templates in RowColumnSettings.php
+## Migration from Joomla 3/4/5
 
-### 4. Database and SQL
-- Fixed SQL installation by adding sql folder to t4.xml
-- Confirmed SQL is already MySQL strict mode compatible
-- Fixed installer script class name
+This version has been fully migrated to native Joomla 6 compatibility. The migration involved:
 
-### 5. Template System
-- Fixed T6\T6::render() type error
-- Fixed json_decode() deprecation warning
-- Fixed TagsHelperRoute class not found error
+- PHP 8.4 modernization with type declarations and modern PHP features
+- Removal of all Joomla 3/4/5 backward compatibility code
+- Updated to use Joomla 6 native APIs exclusively
+- MySQL strict mode compatibility
+- Modernized error handling
+
+For detailed migration documentation, see the `Conversion Documents/` folder.
+
+## Requirements
+
+- **Joomla**: 6.x
+- **PHP**: 8.3+ (target: 8.4)
+- **Database**: MySQL (mysqli or pdo_mysql driver)
+- **PHP Extensions**: json, simplexml, dom, zlib, gd, mbstring, curl
+
+## Project Structure
+
+```
+t6-framework/
+├── t6-system-plugin/          # T6 System Plugin
+│   ├── t6.php                # Plugin entry point
+│   ├── admin/                # Admin interface and custom fields
+│   ├── src/t6/               # Core T6 framework classes
+│   └── themes/               # Base theme templates
+│
+├── tpl_t6_bs5_blank/         # T6 Bootstrap 5 Template
+│   ├── index.php             # Template entry point
+│   ├── etc/                  # Configuration files (JSON)
+│   ├── html/                 # Template overrides
+│   ├── scss/                 # SCSS source files
+│   └── css/                  # Compiled CSS
+│
+└── Conversion Documents/     # Migration documentation
+    ├── README-MIGRATION.md   # Detailed migration guide
+    ├── T4_ARCHITECTURE.md    # Framework architecture guide
+    ├── Joomla_Code_Changes.md # Joomla API changes
+    └── PHP_Code_Changes.md   # PHP version changes
+```
 
 ## Current Status
 
-### Working Features
+The framework is fully functional with all core features working:
+
 - ✅ Plugin installation and activation
-- ✅ Template style editing
-- ✅ Global Settings save functionality
-- ✅ Layout management
-- ✅ Theme customization
+- ✅ Template style editing and global settings
+- ✅ Layout and block management
+- ✅ Theme customization and color palettes
 - ✅ Navigation/megamenu management
-- ✅ Site settings
+- ✅ Font and typography management
 - ✅ Custom CSS/JS editing
-- ✅ Block management
-- ✅ Addon management
-- ✅ Font management
-- ✅ Color palettes
-- ✅ Preset management
-- ✅ Template preview
-- ✅ Export/Import functionality
+- ✅ Import/export functionality
 
-### Known Issues
-- ⚠️ Joomla 6 deprecation warnings (2221 warnings from Joomla core) - These are from Joomla itself, not the T4 plugin
-- ⚠️ Some Joomla 6 features may not be fully compatible with T6's override system
+## Documentation
 
+For detailed technical documentation, architecture guides, and migration notes, refer to the documents in the `Conversion Documents/` folder.
 
-## Save Flow
+## License
 
-### Template Save Flow
-1. User clicks Save in Joomla admin backend
-2. Joomla triggers `onExtensionBeforeSave` event (context: com_templates.style)
-3. `PlgSystemT6::onExtensionBeforeSave()` is called
-4. `Params::beforeSave()` is called
-   - Saves global params (system_*) to `etc/global.json` file
-5. Joomla saves template to `#__template_styles` table
-6. Joomla triggers `onExtensionAfterSave` event
-7. `PlgSystemT6::onExtensionAfterSave()` is called
-   - Cleans T4 cache
-   - Cleans draft data
-
-### AJAX Save Flow (Layout, Megamenu, etc.)
-1. User makes changes in T4 admin interface
-2. AJAX request is sent to `onAjaxT6` with `t6do` parameter
-3. `Action::run()` is called
-4. Specific action handler is called (e.g., `doSaveLayout()`)
-5. `Draft::store()` saves data to cache
-6. Response is returned as JSON
-
-## Debugging
-
-To enable debugging:
-1. Go to System → Global Configuration → System tab
-2. Set Debug System to Yes
-3. Go to System → Global Configuration → Logging tab
-4. Set Log Almost Everything to Yes
-5. Check `/administrator/logs/error.php` for messages starting with "T6"
-
-## Testing Checklist
-
-- [x] Plugin installation
-- [x] Template style editing
-- [x] Global Settings save
-- [x] Layout management
-- [x] Theme customization
-- [x] Navigation/megamenu
-- [x] Site settings
-- [x] Custom CSS/JS
-- [x] Block management
-- [x] Addon management
-- [x] Font management
-- [x] Color palettes
-- [x] Preset management
-- [x] Template preview
-- [x] Export/Import
-
-## Notes
-
-- This version is specifically for Joomla 6 and PHP 8.4
-- All backward compatibility code for Joomla 3/4/5 has been removed
-- Joomla 3/4/5 specific things still exists in a lot of files
-- The plugin uses Joomla 6 native APIs exclusively
-- Debug logging is available for troubleshooting
+See the plugin manifest (`t6-system-plugin/t6.xml`) for license information.
