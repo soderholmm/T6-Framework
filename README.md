@@ -80,5 +80,4 @@ The framework is fully functional with all core features working:
 For detailed technical documentation, architecture guides, and migration notes, refer to the documents in the `Conversion Documents/` folder.
 
 ## License
-
-See the plugin manifest (`t6-system-plugin/t6.xml`) for license information.
+[GNU General Public License version 3 or later](https://www.gnu.org/licenses/gpl-3.0.txt)
