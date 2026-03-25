@@ -494,7 +494,7 @@ class PlgSystemT6 extends CMSPlugin
 		if ($input->get('option') !== 'com_content') {
 			return ;
 		}
-		$articleId = $input->get('id');
+		$articleId = (int) $input->get('id');
 		if (!$articleId) return ;
 
         $css = self::isT6builderPage($articleId);
