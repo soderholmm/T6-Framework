@@ -34,7 +34,7 @@ For detailed migration documentation, see the `Conversion Documents/` folder.
 ## Requirements
 
 - **Joomla**: 6.x
-- **PHP**: 8.3+ (target: 8.4)
+- **PHP**: 8.4+
 - **Database**: MySQL (mysqli or pdo_mysql driver)
 - **PHP Extensions**: json, simplexml, dom, zlib, gd, mbstring, curl
 
@@ -74,6 +74,14 @@ The framework is fully functional with all core features working:
 - ✅ Font and typography management
 - ✅ Custom CSS/JS editing
 - ✅ Import/export functionality
+
+
+## Needs to be fixed
+- [ ] `CSS` files have old Joomla! 3/4/5 specific code
+- [ ] Check for other old code that can be removed
+- [ ] Add `Link Active` color to `Theme Color --> Palettes`
+- [ ] `Reload Preview` button don't load `Menu Item --> Options --> Title` and `Menu Item --> Page Display --> Show Page Heading`
+
 
 ## Documentation
 
