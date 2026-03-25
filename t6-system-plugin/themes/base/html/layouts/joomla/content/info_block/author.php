@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -50,3 +54,4 @@ Factory::getLanguage()->load('plg_system_' . T6_PLUGIN, JPATH_ADMINISTRATOR);
 	<?php $author = '<span itemprop="name">' . $author . '</span>'; ?>
 	<?php echo $author; ?>
 </span>
+ 

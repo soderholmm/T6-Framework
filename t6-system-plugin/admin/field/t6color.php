@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Libraries
  * @subpackage  Form
@@ -150,3 +154,4 @@ class JFormFieldT6color extends FormField
         return $userColors;
     }
 }
+ 

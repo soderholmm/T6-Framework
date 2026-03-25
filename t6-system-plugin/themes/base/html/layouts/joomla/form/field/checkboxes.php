@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -85,3 +89,4 @@ $alt = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $name);
 		</div>
 	<?php endforeach; ?>
 </fieldset>
+ 

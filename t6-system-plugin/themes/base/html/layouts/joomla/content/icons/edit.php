@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -34,3 +38,4 @@ $isUnpublished = ($article->publish_up > $currentDate)
   <div role="tooltip" id="<?php echo $aria_described; ?>">
   	<?php echo $tooltip; ?>
   </div>
+ 

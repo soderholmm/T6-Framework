@@ -1,5 +1,5 @@
 {
-    "name": "joomlart/t6-home-system",
+    "name": "SIT/t6-home-system",
     "description": "T6 Home System Plugin for Joomla 6",
     "type": "joomla-plugin",
     "version": "3.0.0",
@@ -23,3 +23,4 @@
     "minimum-stability": "stable",
     "prefer-stable": true
 }
+ 

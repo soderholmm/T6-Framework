@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -124,3 +128,4 @@ if ($readonly || $disabled)
 		<?php endforeach; ?>
 	</div>
 </fieldset>
+ 

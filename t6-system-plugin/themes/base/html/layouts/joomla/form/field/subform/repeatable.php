@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -98,3 +102,4 @@ $sublayout = empty($groupByFieldset) ? 'section' : 'section-byfieldsets';
 		</div>
 	</div>
 </div>
+ 

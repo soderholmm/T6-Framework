@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -47,3 +51,4 @@ if ($img->attributes['width'] > 0 && $img->attributes['height'] > 0)
 }
 
 echo '<img ' . ArrayHelper::toString($displayData) . '>';
+ 

@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -53,4 +57,4 @@ $hideDescription = empty($options['hiddenDescription']) ? false : $options['hidd
 			</div>
 		<?php endif; ?>
 	</div>
-</div>
+</div> 

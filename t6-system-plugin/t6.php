@@ -1,4 +1,9 @@
 <?php
+/*
+ * @Original Copyright: (C) 2015 J.O.O.M Solutions Co., Ltd. All Rights Reserved.
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy (SIT)
+ * @Author: Soderholmm (SIT)
+ */
 /**
  * @package     Joomla.Plugin
  * @subpackage  Editors.none
@@ -498,4 +503,4 @@ class PlgSystemT6 extends CMSPlugin
         $doc = Factory::getDocument();
         $doc->addStyleDeclaration($css);
     }
-}
+}  

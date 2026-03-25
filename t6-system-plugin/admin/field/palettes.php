@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Libraries
  * @subpackage  Form
@@ -173,3 +177,4 @@ class JFormFieldPalettes extends JFormFieldT6color
 		return parent::setup($element, $value, $group);
 	}
 }
+ 

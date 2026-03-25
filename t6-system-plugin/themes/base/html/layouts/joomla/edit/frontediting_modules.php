@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -75,3 +79,4 @@ if ($count)
 	// HTMLHelper::_('script', 'system/frontediting.js', array('version' => 'auto', 'relative' => true));
 	Factory::getDocument()->addScript(\T6\Helper\Path::findInTheme('js/system/frontediting.js', true));
 }
+ 

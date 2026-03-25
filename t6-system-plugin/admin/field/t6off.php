@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Libraries
  * @subpackage  Form
@@ -35,3 +39,4 @@ class JFormFieldT6off extends FormField
 		return $html;
 	}
 }
+ 

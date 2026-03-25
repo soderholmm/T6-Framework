@@ -1,3 +1,7 @@
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /** 
  *------------------------------------------------------------------------------
  * @package       t6 Framework for Joomla!
@@ -1018,4 +1022,4 @@ var T6AdminMegamenu = window.T6AdminMegamenu || {};
         T6AdminMegamenu.itemConfig();
     });
 
-}(jQuery);
+}(jQuery); 

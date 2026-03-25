@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package   T6_Blank
  * @copyright Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -23,3 +27,4 @@ defined('_JEXEC') or die;
     <jdoc:include type="component" />
 </body>
 </html>
+ 

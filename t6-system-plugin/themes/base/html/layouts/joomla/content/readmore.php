@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -44,3 +48,4 @@ $readmoreShowTitle = Text::sprintf('JGLOBAL_READ_MORE_TITLE', HTMLHelper::_('str
 		</a>
 	<?php endif; ?>
 </p>
+ 

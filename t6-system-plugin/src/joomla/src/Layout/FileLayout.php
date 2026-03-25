@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * Joomla! Content Management System
  *
@@ -36,3 +40,4 @@ class FileLayout extends _JFileLayout
         return $suffixes;
     }
 }
+ 

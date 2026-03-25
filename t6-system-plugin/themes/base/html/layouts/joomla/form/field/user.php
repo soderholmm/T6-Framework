@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -142,3 +146,4 @@ if (!$readonly)
 		<?php echo $modalHTML; ?>
 	<?php endif; ?>
 </joomla-field-user>
+ 

@@ -1,3 +1,7 @@
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy (SIT)
+ * @Author: Soderholmm (SIT)
+ */
 /** 
  *------------------------------------------------------------------------------
  * @package       T6 Framework for Joomla!
@@ -7217,4 +7221,4 @@ body {
 }
 .j4.layout-edit.modal-open.t6-modal-open .modal-dialog.modal-lg .close:hover span, .j5.layout-edit.modal-open.t6-modal-open .modal-dialog.modal-lg .close:hover span, .j6.layout-edit.modal-open.t6-modal-open .modal-dialog.modal-lg .close:hover span {
   background-color: #eee;
-}
+} 

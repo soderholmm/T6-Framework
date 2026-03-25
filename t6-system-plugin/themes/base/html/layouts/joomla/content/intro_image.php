@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -39,3 +43,4 @@ $added_link_image = $params->get('link_intro_image');
 		<figcaption class="caption"><?php echo $this->escape($images->image_intro_caption); ?></figcaption>
 	<?php endif; ?>
 </figure>
+ 

@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -17,3 +21,4 @@ $attrTab = \T6\Helper\T6Bootstrap::getAttrs(array('toggle'=>'tab'));
 $li = '<li class="nav-item' . $active . '"><a class="nav-link' . $active . '" href="#' . $id . '" '.$attrTab.'>' . $title . '</a></li>';
 
 echo 'jQuery(function($){ $(', json_encode('#' . $selector . 'Tabs'), ').append($(', json_encode($li), ')); });';
+ 

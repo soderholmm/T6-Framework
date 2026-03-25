@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -164,3 +168,4 @@ if(\T6\Helper\J3J4::major() < 4){
 		</div>
 	</div>
 </div>
+ 

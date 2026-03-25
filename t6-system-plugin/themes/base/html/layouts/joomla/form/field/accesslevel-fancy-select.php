@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -76,3 +80,4 @@ Text::script('JGLOBAL_SELECT_PRESS_TO_SELECT');
 <joomla-field-fancy-select <?php echo $attr2; ?>><?php
 	echo HTMLHelper::_('access.level', $name, $value, $attr, $options, $id);
 ?></joomla-field-fancy-select>
+ 

@@ -3,7 +3,7 @@
 	<name>plg_system_t6</name>
 	<version>3.0.0</version>
 	<creationDate>March 22, 2026</creationDate>
-	<author>SIT (Ab Söderholms IT-tjänster Oy) - based on work by JoomlArt</author>
+	<author>Ab Söderholms IT-tjänster Oy - based on work by JoomlArt</author>
 	<authorEmail>info@ittjanster.fi</authorEmail>
 	<authorUrl>www.ittjanster.fi</authorUrl>
 	<copyright>Copyright (C) 2005 - 2025 JoomlArt.com | Ab Söderholms IT-tjänster Oy</copyright>
@@ -73,3 +73,4 @@
 	</updateservers>
 	<scriptfile>t6.scripts.php</scriptfile>
 </extension>
+  

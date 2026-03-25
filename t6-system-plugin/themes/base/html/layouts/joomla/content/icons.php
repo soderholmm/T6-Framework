@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -28,4 +32,4 @@ $articleId = $displayData['item']->id;
 			<?php echo HTMLHelper::_('icon.edit', $displayData['item'], $displayData['params']); ?>
 		</div>
 	</div>
-<?php endif; ?>
+<?php endif; ?> 

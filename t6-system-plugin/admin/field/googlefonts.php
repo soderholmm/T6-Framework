@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Libraries
  * @subpackage  Form
@@ -74,3 +78,4 @@ class JFormFieldGooglefonts extends FormField
 		return $checkFontType;
 	}
 }
+ 

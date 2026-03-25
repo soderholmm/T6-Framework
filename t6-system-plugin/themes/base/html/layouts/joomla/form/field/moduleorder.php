@@ -1,4 +1,8 @@
 <?php
+/*
+ * @Copyright: (C) 2026 Ab Söderholms IT-tjänster Oy
+ * @Author: Soderholmm
+ */
 /**
  * @package     Joomla.Site
  * @subpackage  Layout
@@ -89,3 +93,4 @@ extract($displayData);
   ?>
   <joomla-field-module-order <?php echo implode(' ', $attributes); ?>></joomla-field-module-order>
   <?php
+ 
