@@ -28,7 +28,7 @@ $urls    = json_decode($this->item->urls);
 $canEdit = $params->get('access-edit');
 $user    = Factory::getUser();
 $info    = $params->get('info_block_position', 0);
-$og_iamge = $images->image_intro ?: $images->image_fulltext;
+$og_iamge = $images->image_intro ?? $images->image_fulltext ?? '';
 // Check if associations are implemented. If they are, define the parameter.
 $assocParam = (Associations::isEnabled() && $params->get('show_associations'));
 
