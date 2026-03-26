@@ -9,9 +9,12 @@
 }
 
 .__class h1 a:hover, .__class h2 a:hover, .__class h3 a:hover, .__class h4 a:hover,
-.__class h1 a:focus, .__class h2 a:focus, .__class h3 a:focus, .__class h4 a:focus,
-.__class h1 a:active, .__class h2 a:active, .__class h3 a:active, .__class h4 a:active {
+.__class h1 a:focus, .__class h2 a:focus, .__class h3 a:focus, .__class h4 a:focus {
 	color: __heading_hover_color;
+}
+
+.__class h1 a:active, .__class h2 a:active, .__class h3 a:active, .__class h4 a:active {
+	color: __heading_active_color;
 }
 
 .__class a {
@@ -20,6 +23,11 @@
 
 .__class a:hover {
 	color: __link_hover_color;
+}
+
+.__class a:active,
+.__class a.active {
+	color: __link_active_color;
 }
 
 
@@ -31,11 +39,14 @@
 
 .__class .t6-megamenu .navbar-nav > li a:hover,
 .__class .t6-megamenu .navbar-nav > li a:focus,
-.__class .t6-megamenu .navbar-nav > li a:active,
 .__class .t6-megamenu .navbar-nav > li .nav-link:hover,
-.__class .t6-megamenu .navbar-nav > li .nav-link:focus,
-.__class .t6-megamenu .navbar-nav > li .nav-link:active {
+.__class .t6-megamenu .navbar-nav > li .nav-link:focus {
 	color: __link_hover_color;
+}
+
+.__class .t6-megamenu .navbar-nav > li a:active,
+.__class .t6-megamenu .navbar-nav > li .nav-link:active {
+	color: __link_active_color;
 }
 
 .__class .t6-megamenu .navbar-nav > li.animating > .nav-link {
@@ -44,7 +55,7 @@
 
 .__class .t6-megamenu .navbar-nav > li.active > a,
 .__class .t6-megamenu .navbar-nav > li.active > .nav-link {
-  color: __link_hover_color;
+  color: __link_active_color;
 }
 
 /*Caret on module menu*/
@@ -55,22 +66,25 @@
 
 .__class .t6-megamenu .navbar-nav > li a:hover .item-caret,
 .__class .t6-megamenu .navbar-nav > li a:focus .item-caret,
-.__class .t6-megamenu .navbar-nav > li a:active .item-caret,
 .__class .t6-megamenu .navbar-nav > li .nav-link:hover .item-caret,
-.__class .t6-megamenu .navbar-nav > li .nav-link:focus .item-caret,
-.__class .t6-megamenu .navbar-nav > li .nav-link:active .item-caret {
+.__class .t6-megamenu .navbar-nav > li .nav-link:focus .item-caret {
 	border-top-color: __link_hover_color;
+}
+
+.__class .t6-megamenu .navbar-nav > li a:active .item-caret,
+.__class .t6-megamenu .navbar-nav > li .nav-link:active .item-caret {
+	border-top-color: __link_active_color;
 }
 
 .__class .t6-megamenu .navbar-nav > li.active > a .item-caret,
 .__class .t6-megamenu .navbar-nav > li.active > .nav-link .item-caret {
-  border-top-color: __link_hover_color;
+  border-top-color: __link_active_color;
 }
 
 
 /* Sub navigation */
 .__class .t6-megamenu .navbar-nav li.active li.active .nav-link {
-  color: __link_hover_color;
+  color: __link_active_color;
 }
 
 
@@ -90,15 +104,21 @@
 
 .__class .nav > li a:hover,
 .__class .nav > li a:focus,
-.__class .nav > li a:active,
 .__class .nav > li .nav-link:hover,
-.__class .nav > li .nav-link:focus,
-.__class .nav > li .nav-link:active {
+.__class .nav > li .nav-link:focus {
 	color: __link_hover_color;
 }
 
+.__class .nav > li a:active,
+.__class .nav > li .nav-link:active {
+	color: __link_active_color;
+}
+
 .__class .nav > li.active > a,
-.__class .nav > li.active > a.nav-link
+.__class .nav > li.active > a.nav-link {
+  color: __link_active_color;
+}
+
 .__class .nav > li.active:hover > a,
 .__class .nav > li.active:hover > a.nav-link {
   color: __link_hover_color;
@@ -112,11 +132,14 @@
 }
 
 .__class .nav li.active li a:hover,
-.__class .nav li.active li a:focus,
-.__class .nav li.active li a:active {
+.__class .nav li.active li a:focus {
   color: __link_hover_color;
 }
 
+.__class .nav li.active li a:active {
+  color: __link_active_color;
+}
+
 .__class .nav li.active li.active > a {
-  color: __link_hover_color;
+  color: __link_active_color;
 }

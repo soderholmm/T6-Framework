@@ -196,7 +196,8 @@ class Css {
 			return $s;
 		}
 
-		return '';
+		// Return original line if no replacements were made
+		return $s;
 	}
 
 

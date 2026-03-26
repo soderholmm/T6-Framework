@@ -45,6 +45,7 @@
         <color name="text_color" title="T6_LAYOUT_PALETTES_TEXT_COLOR" value="#444" class="text_color  col-right" />
         <color name="link_color" title="T6_LAYOUT_PALETTES_LINK_COLOR" value="#444" class="link_color  col-left" />
         <color name="link_hover_color" title="T6_LAYOUT_PALETTES_LINK_HOVER_COLOR" value="#1a61ab" class="link_hover_color  col-right" />
+        <color name="link_active_color" title="T6_LAYOUT_PALETTES_LINK_ACTIVE_COLOR" value="#1a61ab" class="link_active_color col-left" />
       </field>
     </fieldset>
   </fields>

@@ -85,7 +85,7 @@ if($layout == 'theme') $layoutCls = ' t6-theme-palettes';
 
 <div class="add-more-palettes">
 	<span class="t6-btn btn-action pt-color-create" data-action="palette.add"><i class="fal fa-plus"></i><?php echo Text::_('T6_THEM_PALETTE_ADD_NEW');?></span>
-	<div class="pattern pattern-clone hidden" data-class="" data-status="loc" data-title="" data-link_hover_color="#ffffff" data-link_color="#1a61ab" data-text_color="#ffff" data-heading_hover_color="#1a61ab" data-heading_color="#ff0000" data-background_color="#000">
+<div class="pattern pattern-clone hidden" data-class="" data-status="loc" data-title="" data-link_active_color="#1a61ab" data-link_hover_color="#ffffff" data-link_color="#1a61ab" data-text_color="#ffff" data-heading_hover_color="#1a61ab" data-heading_color="#ff0000" data-background_color="#000">
 		<div class="pattern-inner">
 			<div class="pattern-header">
 				<h4 class="pattern-title"><?php echo $palette['title'];?></h4>

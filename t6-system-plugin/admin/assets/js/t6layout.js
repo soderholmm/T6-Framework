@@ -136,7 +136,8 @@ jQuery(function ($) {
         attrName == "background_color" ||
         attrName == "link_color" ||
         attrName == "text_color" ||
-        attrName == "link_hover_color"
+        attrName == "link_hover_color" ||
+        attrName == "link_active_color"
       ) {
         valueColor = attrValue;
         if (typeof attrValue == "undefined") valueColor = "";

@@ -237,6 +237,9 @@
       if ($(this).data('link_hover_color') == nameColors) {
         $(this).find('span.link_hover_color').css({ background: value });
       }
+      if ($(this).data('link_active_color') == nameColors) {
+        $(this).find('span.link_active_color').css({ background: value });
+      }
     });
     $btn.closest('.control-group').data('color', value);
   }
@@ -296,4 +299,4 @@
       }
     }, '');
   }
-})
+});
