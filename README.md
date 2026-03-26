@@ -1,6 +1,10 @@
-# T6 Framework for Joomla 6
+# 🧩 T6 Framework for Joomla 6
 
 A modern Joomla template framework providing advanced layout management, theme customization, and megamenu functionality for Joomla 6.
+
+[![Joomla](https://img.shields.io/badge/Joomla-6.0-f44321.svg)](https://www.joomla.org)
+[![PHP](https://img.shields.io/badge/PHP-8.4+-777BB4.svg)](https://php.net)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Overview
 
@@ -9,7 +13,10 @@ The T6 Framework consists of two main components:
 - **T6 System Plugin** (`t6-system-plugin/`) - Core framework plugin that provides the template engine, admin interface, and framework functionality
 - **T6 Bootstrap 5 Template** (`tpl_t6_bs5_blank/`) - A blank Bootstrap 5 starter template built on the T6 Framework
 
-## Key Features
+## 🤝 Support the work
+[![PayPal](https://img.shields.io/badge/PayPal-donate-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/soderholmm)
+
+## ✨ Key Features
 
 - **Layout Management** - Visual block-based layout system with drag-and-drop functionality
 - **Theme Customization** - Color palettes, presets, and custom CSS/JS support
@@ -19,7 +26,7 @@ The T6 Framework consists of two main components:
 - **Addon System** - Extensible addon architecture for additional functionality
 - **Import/Export** - Backup and restore template configurations
 
-## Migration from Joomla 3/4/5
+## 🔄 Migration from Joomla 3/4/5
 
 This version has been fully migrated to native Joomla 6 compatibility. The migration involved:
 
@@ -31,14 +38,14 @@ This version has been fully migrated to native Joomla 6 compatibility. The migra
 
 For detailed migration documentation, see the `Conversion Documents/` folder.
 
-## Requirements
+## 📦 Requirements
 
 - **Joomla**: 6.x
 - **PHP**: 8.4+
-- **Database**: MySQL (mysqli or pdo_mysql driver)
+- **Database**: MySQL
 - **PHP Extensions**: json, simplexml, dom, zlib, gd, mbstring, curl
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 t6-framework/
@@ -62,30 +69,35 @@ t6-framework/
     └── PHP_Code_Changes.md   # PHP version changes
 ```
 
-## Current Status
+## 🎯 Current Status
 
 The framework is fully functional with all core features working:
 
-- ✅ Plugin installation and activation
-- ✅ Template style editing and global settings
-- ✅ Layout and block management
-- ✅ Theme customization and color palettes
-- ✅ Navigation/megamenu management
-- ✅ Font and typography management
-- ✅ Custom CSS/JS editing
-- ✅ Import/export functionality
+- [X] Plugin installation and activation
+- [X] Template style editing and global settings
+- [X] Layout and block management
+- [X] Theme customization and color palettes
+- [X] Navigation/megamenu management
+- [X] Font and typography management
+- [X] Custom CSS/JS editing
+
+### Not tested
+- [ ] Import/export functionality
 
 
-## Needs to be fixed
+## ⚠️ Needs to be fixed
 - [ ] `CSS` files have old Joomla! 3/4/5 specific code
 - [ ] Check for other old code that can be removed
-- [ ] Add `Link Active` color to `Theme Color --> Palettes`
 - [ ] `Reload Preview` button don't load `Menu Item --> Options --> Title` and `Menu Item --> Page Display --> Show Page Heading`
 
+## ✅ Fixed
+- [X] Add `Link Active` color to `Theme Color --> Palettes`
 
-## Documentation
+
+## 📚 Documentation
 
 For detailed technical documentation, architecture guides, and migration notes, refer to the documents in the `Conversion Documents/` folder.
 
-## License
+
+## 📄 License
 [GNU General Public License version 3 or later](https://www.gnu.org/licenses/gpl-3.0.txt)
