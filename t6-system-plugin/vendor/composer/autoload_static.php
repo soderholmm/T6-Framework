@@ -6,9 +6,7 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit904fd49ed672e0c42aff15c794fced93
 {
-    public static $files = array (
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
-    );
+    public static $files = array();
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -18,7 +16,6 @@ class ComposerStaticInit904fd49ed672e0c42aff15c794fced93
         ),
         'P' => 
         array (
-            'Psr\\Http\\Message\\' => 17,
             'PhpZip\\' => 7,
         ),
         'M' => 
@@ -36,10 +33,6 @@ class ComposerStaticInit904fd49ed672e0c42aff15c794fced93
         'ScssPhp\\ScssPhp\\' => 
         array (
             0 => __DIR__ . '/..' . '/scssphp/scssphp/src',
-        ),
-        'Psr\\Http\\Message\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'PhpZip\\' => 
         array (
