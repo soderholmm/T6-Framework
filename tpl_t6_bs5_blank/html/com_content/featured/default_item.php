@@ -18,13 +18,7 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 
 if (!class_exists('ContentHelperRoute')) {
-    if (version_compare(JVERSION, '4', 'ge')) {
-        abstract class ContentHelperRoute extends \Joomla\Component\Content\Site\Helper\RouteHelper
-        {
-        };
-    } else {
-        JLoader::register('ContentHelperRoute', $com_path . '/helpers/route.php');
-    }
+    abstract class ContentHelperRoute extends \Joomla\Component\Content\Site\Helper\RouteHelper {};
 }
 
 // Create a shortcut for params.

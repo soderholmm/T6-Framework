@@ -21,9 +21,8 @@ $app = Factory::getApplication();
 // Add JavaScript Frameworks
 HTMLHelper::_('bootstrap.framework');
 
-require_once JPATH_ADMINISTRATOR . '/components/com_users/helpers/users.php';
-
-$twofactormethods = UsersHelper::getTwoFactorMethods();
+// Get extra login buttons (Passkey, etc.)
+$extraButtons = AuthenticationHelper::getLoginButtons('form-login');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -83,17 +82,39 @@ $twofactormethods = UsersHelper::getTwoFactorMethods();
 						<label for="username"><?php echo Text::_('JGLOBAL_USERNAME'); ?></label>
 						<input name="username" id="username" type="text" class="inputbox" alt="<?php echo Text::_('JGLOBAL_USERNAME'); ?>" size="18" />
 					</p>
-					<p id="form-login-password">
-						<label for="passwd"><?php echo Text::_('JGLOBAL_PASSWORD'); ?></label>
-						<input type="password" name="password" class="inputbox" size="18" alt="<?php echo Text::_('JGLOBAL_PASSWORD'); ?>" id="passwd" />
-					</p>
-					<?php if (count($twofactormethods) > 1) : ?>
-						<p id="form-login-secretkey">
-							<label for="secretkey"><?php echo Text::_('JGLOBAL_SECRETKEY'); ?></label>
-							<input type="text" name="secretkey" class="inputbox" size="18" alt="<?php echo Text::_('JGLOBAL_SECRETKEY'); ?>" id="secretkey" />
-						</p>
-					<?php endif; ?>
-					<p id="submit-buton">
+				<p id="form-login-password">
+					<label for="passwd"><?php echo Text::_('JGLOBAL_PASSWORD'); ?></label>
+					<input type="password" name="password" class="inputbox" size="18" alt="<?php echo Text::_('JGLOBAL_PASSWORD'); ?>" id="passwd" />
+				</p>
+				<?php foreach ($extraButtons as $button) :
+					$dataAttributeKeys = array_filter(array_keys($button), function ($key) {
+						return substr($key, 0, 5) == 'data-';
+					});
+					?>
+					<div class="mod-login__submit form-group">
+						<button type="button"
+								class="btn btn-secondary w-100 mt-4 <?php echo $button['class'] ?? '' ?>"
+						<?php foreach ($dataAttributeKeys as $key) : ?>
+							<?php echo $key ?>="<?php echo $button[$key] ?>"
+						<?php endforeach; ?>
+						<?php if ($button['onclick']) : ?>
+							onclick="<?php echo $button['onclick'] ?>"
+						<?php endif; ?>
+						title="<?php echo Text::_($button['label']) ?>"
+						id="<?php echo $button['id'] ?>"
+						>
+						<?php if (!empty($button['icon'])) : ?>
+							<span class="<?php echo $button['icon'] ?>"></span>
+						<?php elseif (!empty($button['image'])) : ?>
+							<?php echo $button['image']; ?>
+						<?php elseif (!empty($button['svg'])) : ?>
+							<?php echo $button['svg']; ?>
+						<?php endif; ?>
+						<?php echo Text::_($button['label']) ?>
+						</button>
+					</div>
+				<?php endforeach; ?>
+				<p id="submit-buton">
 						<input type="submit" name="Submit" class="button login" value="<?php echo Text::_('JLOGIN'); ?>" />
 					</p>
 					<input type="hidden" name="option" value="com_users" />
