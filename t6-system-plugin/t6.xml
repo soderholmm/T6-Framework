@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="6.0" type="plugin" group="system" method="upgrade">
 	<name>plg_system_t6</name>
-	<version>3.1.0</version>
+	<version>3.1.1</version>
 	<creationDate>March 26, 2026</creationDate>
 	<author>Ab Söderholms IT-tjänster Oy - based on work by JoomlArt</author>
 	<authorEmail>info@ittjanster.fi</authorEmail>
