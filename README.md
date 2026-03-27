@@ -86,14 +86,13 @@ The framework is fully functional with all core features working:
 
 
 ## ⚠️ Needs to be fixed
-- [ ] `CSS` files have old Joomla! 3/4/5 specific code
 - [ ] Check for other old code or unused files that can be removed
 - [ ] `Reload Preview` button don't load `Menu Item --> Options --> Title` and `Menu Item --> Page Display --> Show Page Heading`
 
 ## ✅ Fixes
 - [X] Add `Link Active` color to `Theme Color --> Palettes`
 - [X] Updated offline.php to use modern Joomla 6 authentication API (Passkey support)
-- [X] Removed old Joomla 3/4 compatibility code from template overrides
+- [X] Removed old Joomla 3/4 compatibility code from template and plugin overrides
 - [X] Fixed PSR-7 interface conflict causing Error 500 during Passkey registration
 - [X] Removed redundant vendor dependencies (psr/, paragonie/random_compat)
 
